@@ -4,7 +4,7 @@ on: [workflow_dispatch]
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - name: Git Checkout
         uses: actions/checkout@v2
@@ -13,7 +13,7 @@ jobs:
         uses: c-hive/gha-yarn-cache@v1
 
       - name: Install dependencies
-        run: CXXFLAGS="--std=c++14" yarn
+        run: yarn
 
       - name: Build React App
         run: yarn build
