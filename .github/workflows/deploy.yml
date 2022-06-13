@@ -4,10 +4,14 @@ on: [workflow_dispatch]
 
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Git Checkout
         uses: actions/checkout@v2
+      - name: nodejs14
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
 
       - name: Yarn Cache
         uses: c-hive/gha-yarn-cache@v1
